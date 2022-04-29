@@ -24,6 +24,7 @@ class colatz
         }
         void colatz_printer(unsigned long long int num);
         void colatz_csv(unsigned long long int num);
+        void colatz_multi_csv(unsigned long long int num1, unsigned long long int num2);
 
     private:
         unsigned long long int calculate_next(unsigned long long int num);

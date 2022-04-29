@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
 {
     bool csv_out = true;
     int input_number;
+    int input_number_2;
     colatz colatz_conjecture;
   
     switch(argc)
@@ -47,6 +48,22 @@ int main(int argc, char* argv[])
             else
             {
                 std::cout << "Invalid arguments given <number> <arg>  [arg = -p or -c]" << std::endl;
+            }
+            break;
+
+        case 4:
+
+            input_number = std::stoll(argv[1],nullptr);
+            input_number_2 = std::stoll(argv[2],nullptr);
+
+            if (strcmp(argv[3], "-c") == 0)
+            {
+                std::cout << "multiline csv out" << std::endl;
+                colatz_conjecture.colatz_multi_csv(input_number, input_number_2);
+            }
+            else
+            {
+                std::cout << "Invalid arguments given <number> <number2> <arg>  [arg = -c]" << std::endl;
             }
             break;
 

@@ -37,15 +37,20 @@ int main(int argc, char* argv[])
         //Single Number Output
         case 2:
             
-            input_number = std::stoi(argv[1],nullptr);
+            input_number = std::stoll(argv[1],nullptr);
             colatz_conjecture.colatz_printer(input_number);
 
             break;
 
-        // Rangle of numbers function
+        // Range of numbers function
         case 3:
-            std::cout << "3 Argument" << std::endl;
+            
+            input_number = std::stoll(argv[1],nullptr);
+            colatz_conjecture.colatz_csv(input_number);
+            
             break;
+
+
         default:
             std::cout << "Invalid Number of Arguments (1-3 Required)" << std::endl;
             std::cout << argv[0] << std::endl;

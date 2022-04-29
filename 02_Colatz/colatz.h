@@ -3,6 +3,10 @@
 #ifndef _COLATZ_H
 #define _COLATZ_H
 
+#include <iostream>
+
+#include "csv.h"
+
 //-------------------------------------------------------------------
 // Calculate Numbers from an input number/s using the colatz conjecture
 
@@ -12,18 +16,19 @@ class colatz
         colatz()
         {
             //std::cout << "[Ctor] : colatz " << std::endl;
-            int _numsteps = 0;
         }
 
         ~colatz()
         {
             //std::cout << "[Dtor] : colatz " << std::endl;
         }
-        void colatz_printer(int num);
+        void colatz_printer(unsigned long long int num);
+        void colatz_csv(unsigned long long int num);
+
     private:
-        int calculate_next(int num);
-        int _calculatedValue;
-        int _numSteps;
+        unsigned long long int calculate_next(unsigned long long int num);
+        unsigned long long int _calculatedValue;
+        int _numSteps = 0;
 };
 
 

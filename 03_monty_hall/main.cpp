@@ -6,14 +6,14 @@
 //
 // Initial Revision: Lachlan A Smith, 2022
 
-
+#include <time.h>
 #include "game.h"
 
 int main()
 {
 
     // Random Number Seed
-    srand(4322); 
+    srand(time(NULL)); 
 
     game MontyHall;
 

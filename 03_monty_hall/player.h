@@ -6,22 +6,24 @@
 #include <iostream>
 #include <limits>
 
+
 //-------------------------------------------------------------------
 class player
 {
     public:
         player()
         {
-            std::cout << "[Ctor] : player " << std::endl;
+            //std::cout << "[Ctor] : player " << std::endl;
         }
 
         ~player()
         {
-            std::cout << "[Dtor] : player " << std::endl;
+            //std::cout << "[Dtor] : player " << std::endl;
         }
 
 
         int ChooseDoor();
+        int SwitchDoor(int closedDoor, int playerDoor);
 
     private:
 

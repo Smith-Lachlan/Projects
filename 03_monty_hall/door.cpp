@@ -18,3 +18,8 @@ bool door::returnCar()
 {
     return _Car;
 }
+//---------------------------------------------------------------
+int door::returnID()
+{
+    return _ID;
+}

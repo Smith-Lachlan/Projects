@@ -20,9 +20,24 @@ void game::Run()
 {
     std::cout   << "*****MONTY HALL GAME SIMULTATION*****" << std::endl;
     GameShowHost->AskDoor();
-    Contestant->ChooseDoor();
-    GameShowHost->OpenDoor();
+    _doorSelection = Contestant->ChooseDoor();
+    _doorLeftShut = GameShowHost->OpenDoor(_doorSelection, Doors, NUM_DOORS);
+    
+    GameShowHost->AskSwitch(_doorLeftShut);
+    _doorSelection = Contestant->SwitchDoor(_doorLeftShut,_doorSelection);
 
+    GameShowHost->DetermineWinner(_doorSelection, Doors);
+
+
+
+
+
+    // REVEAL ALL DOORS
+    std::cout   << "What was behind each door?" << std::endl;
+    for (int i = 0; i < NUM_DOORS; i++)
+    {
+        std::cout   << "Door #" << Doors[i]->returnID() << " = " << Doors[i]->returnCar() << std::endl;
+    }
     //player Contestant;
 }
 

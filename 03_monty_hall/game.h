@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 #include "host.h"
 #include "player.h"
@@ -20,7 +21,7 @@ class game
     public:
         game()
         {
-            std::cout << "[Ctor] : game " << std::endl;
+            //std::cout << "[Ctor] : game " << std::endl;
             Contestant = new player();
             GameShowHost = new host();
             for (int i = 0; i < NUM_DOORS; i++)
@@ -31,7 +32,7 @@ class game
 
         ~game()
         {
-            std::cout << "[Dtor] : game " << std::endl;
+            //std::cout << "[Dtor] : game " << std::endl;
             delete Contestant;
             delete GameShowHost;
             for (int i = 0; i < NUM_DOORS; i++)
@@ -48,7 +49,10 @@ class game
         player* Contestant;
         host* GameShowHost;
         door* Doors[NUM_DOORS];
-        
+
+        int _doorSelection;
+        int _doorLeftShut;
+
         void PlaceCar();
         
 };

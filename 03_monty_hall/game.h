@@ -12,17 +12,21 @@
 #include "door.h"
 
 #define NUM_DOORS 3
+#define WINNER 1
+#define LOSER 0
 
 //-------------------------------------------------------------------
-// Saves to CSV - Associated functions
 class game
 {
 
     public:
-        game()
+        game( player* person)  : Contestant(person)
         {
             //std::cout << "[Ctor] : game " << std::endl;
-            Contestant = new player();
+            //Contestant = new player();
+            //Contestant = new playerNoSwitch();
+            //Contestant = new playerSwitch();
+
             GameShowHost = new host();
             for (int i = 0; i < NUM_DOORS; i++)
             {
@@ -41,7 +45,7 @@ class game
             }
         }
         
-        void Run();
+        int Run();
         void Init();
 
 
@@ -54,6 +58,7 @@ class game
         int _doorLeftShut;
 
         void PlaceCar();
+        void Reset();
         
 };
 

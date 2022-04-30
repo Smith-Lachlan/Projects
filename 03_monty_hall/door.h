@@ -23,6 +23,7 @@ class door
         }
 
         void setCar();
+        void reset();
         bool returnCar();
         int returnID(); 
 

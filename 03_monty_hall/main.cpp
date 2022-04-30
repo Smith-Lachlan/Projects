@@ -8,6 +8,7 @@
 
 #include <time.h>
 #include "game.h"
+#include "evaluator.h"
 
 int main()
 {
@@ -15,9 +16,13 @@ int main()
     // Random Number Seed
     srand(time(NULL)); 
 
-    game MontyHall;
+    evaluator MontyHallEval;
 
-    MontyHall.Init();
-    MontyHall.Run();
+    MontyHallEval.Run(500);
+
+    // player lachlan;
+    // game MontyHall(&lachlan);
+    // MontyHall.Init();
+    // MontyHall.Run();
 
 }

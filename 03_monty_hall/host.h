@@ -27,7 +27,7 @@ class host
         void AskDoor();
         void AskSwitch(int closedDoor);
         int OpenDoor(int playerDoor, door** doorsList, int numDoors);
-        void DetermineWinner(int doorSelection, door** doorsList);
+        int DetermineWinner(int doorSelection, door** doorsList);
 
     private:
      

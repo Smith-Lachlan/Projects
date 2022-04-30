@@ -12,11 +12,12 @@
 //---------------------------------------------------------------
 void game::Init()
 {
+    Reset();
     PlaceCar();
 }
 
 //---------------------------------------------------------------
-void game::Run()
+int game::Run()
 {
     std::cout   << "*****MONTY HALL GAME SIMULTATION*****" << std::endl;
     GameShowHost->AskDoor();
@@ -26,11 +27,7 @@ void game::Run()
     GameShowHost->AskSwitch(_doorLeftShut);
     _doorSelection = Contestant->SwitchDoor(_doorLeftShut,_doorSelection);
 
-    GameShowHost->DetermineWinner(_doorSelection, Doors);
-
-
-
-
+    
 
     // REVEAL ALL DOORS
     std::cout   << "What was behind each door?" << std::endl;
@@ -39,6 +36,8 @@ void game::Run()
         std::cout   << "Door #" << Doors[i]->returnID() << " = " << Doors[i]->returnCar() << std::endl;
     }
     //player Contestant;
+
+    return GameShowHost->DetermineWinner(_doorSelection, Doors);
 }
 
 //---------------------------------------------------------------
@@ -46,4 +45,14 @@ void game::PlaceCar()
 {
     //Set A Random Door as the one with a Car
     Doors[rand() % NUM_DOORS]->setCar();
+}
+
+//
+void game::Reset()
+{
+    //Set all door values to zero
+    for (int i = 0; i < NUM_DOORS; i++)
+    {
+        Doors[i]->reset();
+    }
 }

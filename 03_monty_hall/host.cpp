@@ -20,13 +20,17 @@ void host::AskSwitch(int closedDoor)
     std::cout << "[Host] Would you like to switch to door "<< closedDoor << " ? (Y or N)"<< std::endl;
 }
 
-void host::DetermineWinner(int doorSelection, door** doorsList)
+int host::DetermineWinner(int doorSelection, door** doorsList)
 {
     if ( doorsList[doorSelection]->returnCar() )
-        std::cout << "[HOST] Congratulations! You have picked the correct door (Door =  "<< doorSelection << " )"<< std::endl;
+    {
+        std::cout << "[Host] Congratulations! You have picked the correct door (Door =  "<< doorSelection << " )"<< std::endl;
+        return WINNER;
+    }
     else
     {
-        std::cout << "[HOST] Better luck next time! You did not select the correct door" << std::endl;
+        std::cout << "[Host] Better luck next time! You did not select the correct door" << std::endl;
+        return LOSER;
     }
 }
 

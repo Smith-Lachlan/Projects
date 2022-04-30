@@ -19,7 +19,7 @@ void game::Init()
 //---------------------------------------------------------------
 int game::Run()
 {
-    std::cout   << "*****MONTY HALL GAME SIMULTATION*****" << std::endl;
+    //std::cout   << "*****MONTY HALL GAME SIMULTATION*****" << std::endl;
     GameShowHost->AskDoor();
     _doorSelection = Contestant->ChooseDoor(NUM_DOORS);
     _doorLeftShut = GameShowHost->OpenDoor(_doorSelection, Doors, NUM_DOORS);
@@ -29,7 +29,7 @@ int game::Run()
 
     
 
-    // REVEAL ALL DOORS
+    //REVEAL ALL DOORS
     std::cout   << "What was behind each door?" << std::endl;
     for (int i = 0; i < NUM_DOORS; i++)
     {
@@ -38,6 +38,20 @@ int game::Run()
     //player Contestant;
 
     return GameShowHost->DetermineWinner(_doorSelection, Doors);
+}
+
+//---------------------------------------------------------------
+int game::RunSilent()
+{
+    //std::cout   << "*****MONTY HALL GAME SIMULTATION*****" << std::endl;
+    //GameShowHost->AskDoor();
+    _doorSelection = Contestant->ChooseDoorSilent(NUM_DOORS);
+    _doorLeftShut = GameShowHost->OpenDoorSilent(_doorSelection, Doors, NUM_DOORS);
+    
+    //GameShowHost->AskSwitch(_doorLeftShut);
+    _doorSelection = Contestant->SwitchDoorSilent(_doorLeftShut,_doorSelection);
+
+    return GameShowHost->DetermineWinnerSilent(_doorSelection, Doors);
 }
 
 //---------------------------------------------------------------

@@ -67,6 +67,8 @@ int player::SwitchDoor(int closedDoor,int playerDoor)
     }
 }
 
+//-------------------------------------------------------------
+
 int playerNoSwitch::ChooseDoor(int numDoors)
 {
     int selectedDoor = rand() % numDoors;
@@ -90,5 +92,27 @@ int playerSwitch::ChooseDoor(int numDoors)
 int playerSwitch::SwitchDoor(int closedDoor,int playerDoor)
 {
     std::cout << "[Player] I will switch to door "<< closedDoor << std::endl;
+    return closedDoor; 
+}
+
+//-------------------------------------------------------------
+
+int playerNoSwitch::ChooseDoorSilent(int numDoors)
+{
+    return ( rand() % numDoors ) ;
+}
+
+int playerNoSwitch::SwitchDoorSilent(int closedDoor,int playerDoor)
+{
+    return playerDoor;
+}
+
+int playerSwitch::ChooseDoorSilent(int numDoors)
+{
+    return (  rand() % numDoors ) ;
+}
+
+int playerSwitch::SwitchDoorSilent(int closedDoor,int playerDoor)
+{
     return closedDoor; 
 }

@@ -25,6 +25,9 @@ class player
         virtual int ChooseDoor(int numDoors);
         virtual int SwitchDoor(int closedDoor, int playerDoor);
 
+        virtual int ChooseDoorSilent(int numDoors) = 0;
+        virtual int SwitchDoorSilent(int closedDoor, int playerDoor) = 0;
+
     private:  
 };
 
@@ -33,6 +36,9 @@ class playerNoSwitch: public player
     public:
         int ChooseDoor(int numDoors);
         int SwitchDoor(int closedDoor, int playerDoor);
+
+        int ChooseDoorSilent(int numDoors);
+        int SwitchDoorSilent(int closedDoor, int playerDoor);
 };
 
 class playerSwitch: public player
@@ -40,5 +46,8 @@ class playerSwitch: public player
     public:
         int ChooseDoor(int numDoors);
         int SwitchDoor(int closedDoor, int playerDoor);
+
+        int ChooseDoorSilent(int numDoors);
+        int SwitchDoorSilent(int closedDoor, int playerDoor);
 };
 #endif

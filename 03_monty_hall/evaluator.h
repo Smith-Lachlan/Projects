@@ -23,7 +23,7 @@ class evaluator
         }
 
         void Run(int iterations);
-        void RunSingleEvaluation(int iterations, game MontyHall);
+        void RunSingleEvaluation(int iterations, player* Contestant);
 
     private:
      

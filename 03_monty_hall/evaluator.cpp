@@ -12,32 +12,21 @@
 //---------------------------------------------------------------
 void evaluator::Run(int iterations)
 {
-    
-    playerSwitch AlwaysSwitch;
-    game MontyHall_1(&AlwaysSwitch);
-
-    playerNoSwitch NeverSwitch;
-    game MontyHall_2(&NeverSwitch);
 
     //Run Iterations for Swapping
-    RunSingleEvaluation(iterations,MontyHall_1);
-
-
-    
-
-    //Run Iterations for not swapping player
-
-}
-
-void evaluator::RunSingleEvaluation(int iterations, game MontyHall)
-{
+    playerSwitch AlwaysSwitch;
+    playerNoSwitch NeverSwitch;
+    std::cout << "~~~~~~~~~ Always Switch Strategy ~~~~~~~~~ " << std::endl;
+    //RunSingleEvaluation(iterations,&AlwaysSwitch);
     int GamesWon = 0;
     int GamesPlayed = 0;
 
+    game MontyHall_1(&AlwaysSwitch);
+
     for (int i = 0; i < iterations; i++)
     {
-        MontyHall.Init();
-        if(MontyHall.Run())
+        MontyHall_1.Init();
+        if(MontyHall_1.RunSilent())
         {
             GamesWon++;
         }
@@ -49,4 +38,54 @@ void evaluator::RunSingleEvaluation(int iterations, game MontyHall)
 
     float SuccessRate = (float(GamesWon)/float(GamesPlayed))*100;
     std::cout << "Success Rate: "<< SuccessRate << "%" << std::endl;
+
+    std::cout << "~~~~~~~~~ Never Switch Strategy ~~~~~~~~~ " << std::endl;
+    //RunSingleEvaluation(iterations,&AlwaysSwitch);
+    GamesWon = 0;
+    GamesPlayed = 0;
+
+    game MontyHall_2(&NeverSwitch);
+
+    for (int i = 0; i < iterations; i++)
+    {
+        MontyHall_2.Init();
+        if(MontyHall_2.RunSilent())
+        {
+            GamesWon++;
+        }
+        GamesPlayed++;
+    }
+
+    std::cout << "Games won: "<< GamesWon << std::endl;
+    std::cout << "Games played: "<< GamesPlayed << std::endl;
+
+    SuccessRate = (float(GamesWon)/float(GamesPlayed))*100;
+    std::cout << "Success Rate: "<< SuccessRate << "%" << std::endl;
+
+
+}
+
+void evaluator::RunSingleEvaluation(int iterations, player* Contestant)
+{
+    int GamesWon = 0;
+    int GamesPlayed = 0;
+
+    game MontyHall(Contestant);
+
+    for (int i = 0; i < iterations; i++)
+    {
+        MontyHall.Init();
+        if(MontyHall.RunSilent())
+        {
+            GamesWon++;
+        }
+        GamesPlayed++;
+    }
+
+    std::cout << "Games won: "<< GamesWon << std::endl;
+    std::cout << "Games played: "<< GamesPlayed << std::endl;
+
+    float SuccessRate = (float(GamesWon)/float(GamesPlayed))*100;
+    std::cout << "Success Rate: "<< SuccessRate << "%" << std::endl;
+
 }

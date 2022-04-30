@@ -20,6 +20,7 @@ void host::AskSwitch(int closedDoor)
     std::cout << "[Host] Would you like to switch to door "<< closedDoor << " ? (Y or N)"<< std::endl;
 }
 
+//--------------------------------------------------
 int host::DetermineWinner(int doorSelection, door** doorsList)
 {
     if ( doorsList[doorSelection]->returnCar() )
@@ -30,6 +31,19 @@ int host::DetermineWinner(int doorSelection, door** doorsList)
     else
     {
         std::cout << "[Host] Better luck next time! You did not select the correct door" << std::endl;
+        return LOSER;
+    }
+}
+
+//--------------------------------------------------
+int host::DetermineWinnerSilent(int doorSelection, door** doorsList)
+{
+    if ( doorsList[doorSelection]->returnCar() )
+    {
+        return WINNER;
+    }
+    else
+    {
         return LOSER;
     }
 }
@@ -78,6 +92,43 @@ int host::OpenDoor(int playerDoor, door** doorsList, int numDoors)
     for(auto it = std::begin(doorsToOpen); it != std::end(doorsToOpen); ++it) 
     {
         std::cout << "[Host] Door "<< doorsList[*it]->returnID() <<" should be opened!" << std::endl;
+    }
+
+    return doorNotToOpen;
+}
+
+//--------------------------------------------------
+int host::OpenDoorSilent(int playerDoor, door** doorsList, int numDoors)
+{
+
+    int numDoorsToOpen = numDoors - 2;
+    bool carNotSelectedByPlayer = false;
+    int doorNotToOpen;
+
+    std::vector<int> doorsToOpen(numDoors);
+    std::iota(doorsToOpen.begin(), doorsToOpen.end(), 0);
+
+    //remove player door from the list and keep shut
+    doorsToOpen.erase(doorsToOpen.begin() + playerDoor);
+
+    //Check if car in in remaing doors that are shut, if so keep that door shut
+    for(auto it = std::begin(doorsToOpen); it != std::end(doorsToOpen); ++it) 
+    {
+
+        if (doorsList[*it]->returnCar())
+        {
+             doorNotToOpen = *it;
+             doorsToOpen.erase(it);
+             carNotSelectedByPlayer = true;
+             break;
+        }
+    }
+    
+    // If car is not in remaining doors select one door at random to keep shut
+    if(!carNotSelectedByPlayer)
+    {
+        doorNotToOpen = rand() % doorsToOpen.size();
+        doorsToOpen.erase(doorsToOpen.begin() + doorNotToOpen);
     }
 
     return doorNotToOpen;

@@ -18,7 +18,7 @@ int main()
 
     evaluator MontyHallEval;
 
-    MontyHallEval.Run(500);
+    MontyHallEval.Run(100000);
 
     // player lachlan;
     // game MontyHall(&lachlan);

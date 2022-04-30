@@ -46,6 +46,7 @@ class game
         }
         
         int Run();
+        int RunSilent();
         void Init();
 
 

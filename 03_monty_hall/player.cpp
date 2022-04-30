@@ -10,7 +10,7 @@
 #include "game.h"
 
 
-int player::ChooseDoor()
+int player::ChooseDoor(int numDoors)
 {
     int door_selection;
     for (;;) 
@@ -26,7 +26,7 @@ int player::ChooseDoor()
         } 
         else 
         {
-            std::cout << "[Host] Please Choose A Number Between 0-"<< NUM_DOORS - 1 << std::endl;
+            std::cout << "[Host] Please Choose A Number Between 0-"<< numDoors-1 << std::endl;
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }

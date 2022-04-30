@@ -20,7 +20,7 @@ void game::Run()
 {
     std::cout   << "*****MONTY HALL GAME SIMULTATION*****" << std::endl;
     GameShowHost->AskDoor();
-    _doorSelection = Contestant->ChooseDoor();
+    _doorSelection = Contestant->ChooseDoor(NUM_DOORS);
     _doorLeftShut = GameShowHost->OpenDoor(_doorSelection, Doors, NUM_DOORS);
     
     GameShowHost->AskSwitch(_doorLeftShut);

@@ -22,13 +22,23 @@ class player
         }
 
 
-        int ChooseDoor();
-        int SwitchDoor(int closedDoor, int playerDoor);
+        virtual int ChooseDoor(int numDoors);
+        virtual int SwitchDoor(int closedDoor, int playerDoor);
 
-    private:
-
-
-        
+    private:  
 };
 
+class playerNoSwitch: public player
+{
+    public:
+        int ChooseDoor(int numDoors);
+        int SwitchDoor(int closedDoor, int playerDoor);
+};
+
+class playerSwitch: public player
+{
+    public:
+        int ChooseDoor(int numDoors);
+        int SwitchDoor(int closedDoor, int playerDoor);
+};
 #endif

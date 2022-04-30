@@ -17,6 +17,7 @@ int main()
 
     game MontyHall;
 
+    MontyHall.Init();
     MontyHall.Run();
 
 }

@@ -19,6 +19,9 @@ class host
             std::cout << "[Dtor] : host " << std::endl;
         }
 
+        void AskDoor();
+        int OpenDoor();
+
     private:
 
      

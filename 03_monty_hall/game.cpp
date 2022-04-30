@@ -12,13 +12,17 @@
 //---------------------------------------------------------------
 void game::Init()
 {
-    
+    PlaceCar();
 }
 
 //---------------------------------------------------------------
 void game::Run()
 {
-    std::cout   << "Game Run" << std::endl;
+    std::cout   << "*****MONTY HALL GAME SIMULTATION*****" << std::endl;
+    GameShowHost->AskDoor();
+    Contestant->ChooseDoor();
+    GameShowHost->OpenDoor();
+
     //player Contestant;
 }
 

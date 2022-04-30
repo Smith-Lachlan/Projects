@@ -4,6 +4,7 @@
 #define _PLAYER_H
 
 #include <iostream>
+#include <limits>
 
 //-------------------------------------------------------------------
 class player
@@ -18,6 +19,9 @@ class player
         {
             std::cout << "[Dtor] : player " << std::endl;
         }
+
+
+        int ChooseDoor();
 
     private:
 

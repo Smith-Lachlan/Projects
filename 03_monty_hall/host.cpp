@@ -4,6 +4,17 @@
 // Completed by: Lachlan Smith
 
 
-#include <cstdlib>      // rand
-
 #include "host.h"
+
+
+//--------------------------------------------------
+void host::AskDoor()
+{
+    std::cout << "[Host:] Choose a Door 1 - 3" << std::endl;
+}
+
+//--------------------------------------------------
+int host::OpenDoor()
+{
+    
+}

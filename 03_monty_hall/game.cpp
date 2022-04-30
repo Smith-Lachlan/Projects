@@ -19,4 +19,12 @@ void game::Init()
 void game::Run()
 {
     std::cout   << "Game Run" << std::endl;
+    //player Contestant;
+}
+
+//---------------------------------------------------------------
+void game::PlaceCar()
+{
+    //Set A Random Door as the one with a Car
+    Doors[rand() % NUM_DOORS]->setCar();
 }

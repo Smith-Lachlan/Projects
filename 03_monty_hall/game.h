@@ -4,33 +4,52 @@
 #define _GAME_H
 
 #include <iostream>
-#include <fstream>
-#include <string>
+#include <cstdlib>
 
 #include "host.h"
 #include "player.h"
 #include "door.h"
 
+#define NUM_DOORS 3
+
 //-------------------------------------------------------------------
 // Saves to CSV - Associated functions
 class game
 {
+
     public:
         game()
         {
             std::cout << "[Ctor] : game " << std::endl;
+            Contestant = new player();
+            GameShowHost = new host();
+            for (int i = 0; i < NUM_DOORS; i++)
+            {
+                Doors[i] = new door(i);
+            }
         }
 
         ~game()
         {
             std::cout << "[Dtor] : game " << std::endl;
+            delete Contestant;
+            delete GameShowHost;
+            for (int i = 0; i < NUM_DOORS; i++)
+            {
+                delete Doors[i];
+            }
         }
+        
         void Run();
         void Init();
 
+
     private:
-
-
+        player* Contestant;
+        host* GameShowHost;
+        door* Doors[NUM_DOORS];
+        
+        void PlaceCar();
         
 };
 

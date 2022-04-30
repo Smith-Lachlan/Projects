@@ -8,12 +8,12 @@
 
 
 #include "game.h"
-#include "player.h"
-#include "host.h"
-#include "door.h"
 
 int main()
 {
+
+    // Random Number Seed
+    srand(4322); 
 
     game MontyHall;
 

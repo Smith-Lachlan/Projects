@@ -4,15 +4,8 @@
 #define _PLAYER_H
 
 #include <iostream>
-#include <fstream>
-#include <string>
-
-#include "host.h"
-#include "game.h"
-#include "door.h"
 
 //-------------------------------------------------------------------
-// Saves to CSV - Associated functions
 class player
 {
     public:
@@ -31,3 +24,5 @@ class player
 
         
 };
+
+#endif
